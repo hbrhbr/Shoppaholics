@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "723223558988",
+    "project_id": "shoppaholics-project",
+    "storage_bucket": "shoppaholics-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723223558988:android:c6f5e4785168dec52eade9",
+        "android_client_info": {
+          "package_name": "com.shoppaholics.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723223558988-597u9ul57sp4q1hl4j0vb2lfjsr7cq96.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shoppaholics.app",
+            "certificate_hash": "8db027ea93ae855469356684e770fd58af14d92a"
+          }
+        },
+        {
+          "client_id": "723223558988-02u9k3v6irfgf2daj7cs114tqe5b89p1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQpe3nLEd82lLy_fVE6uN8IJDWEgpfgjo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723223558988-02u9k3v6irfgf2daj7cs114tqe5b89p1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
