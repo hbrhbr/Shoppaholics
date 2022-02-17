@@ -1,4 +1,5 @@
 import 'package:active_ecommerce_flutter/app_config.dart';
+import 'package:active_ecommerce_flutter/data_model/cbk_knet_url_response.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/foundation.dart';
 import 'dart:convert';
@@ -27,8 +28,7 @@ class PaymentRepository {
     return paymentTypeResponseFromJson(response.body);
   }
 
-  Future<OrderCreateResponse> getOrderCreateResponse(
-      @required payment_method) async {
+  Future<OrderCreateResponse> getOrderCreateResponse(@required payment_method) async {
     var post_body = jsonEncode(
         {"user_id": "${user_id.value}", "payment_type": "${payment_method}"});
 
@@ -39,8 +39,21 @@ class PaymentRepository {
         },
         body: post_body);
 
-    print(response.body.toString());
+    print("response.body.toString()----->>>>> ${response.body.toString()}");
     return orderCreateResponseFromJson(response.body);
+  }
+  Future<Map<String,dynamic>> getCBKOrderPaymentStatusResponse({String combined_order_id,String encrp}) async {
+String apiUrl = "${AppConfig.BASE_URL}/cbk/callresponse?combined_order_id=$combined_order_id&encrp=$encrp";
+print("payment Status API URL CBK -->>$apiUrl");
+final response = await http.get(apiUrl,
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer ${access_token.value}"
+        },
+    );
+
+    print("response.body.toString()----->>>>> ${response.body.toString()}");
+    return json.decode(response.body);
   }
 
   Future<Map<String, dynamic>> getMyFatoorahCredentails() async {
@@ -51,14 +64,24 @@ class PaymentRepository {
     return json.decode(response.body);
   }
 
-  Future<PaypalUrlResponse> getPaypalUrlResponse(@required String payment_type,
-      @required int combined_order_id, @required double amount) async {
+  Future<PaypalUrlResponse> getPaypalUrlResponse(@required String payment_type, @required int combined_order_id, @required double amount) async {
     final response = await http.get(
       "${AppConfig.BASE_URL}/paypal/payment/url?payment_type=${payment_type}&combined_order_id=${combined_order_id}&amount=${amount}&user_id=${user_id.value}",
     );
 
     //print(response.body.toString());
     return paypalUrlResponseFromJson(response.body);
+  }
+  Future<CBK_KNET_UrlResponse> getCbkKnetUrlResponse(@required String payment_type, @required int combined_order_id, @required double amount) async {
+    final response = await http.post(
+      "${AppConfig.BASE_URL}/cbk/pay-with-cbk",
+      body: {
+        "combined_order_id":"$combined_order_id",
+        "user_id":"${user_id.value}",
+      }
+    );
+    print(response.body.toString());
+    return cbkKnetUrlResponseFromJson(response.body);
   }
 
   Future<FlutterwaveUrlResponse> getFlutterwaveUrlResponse(

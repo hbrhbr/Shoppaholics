@@ -1,5 +1,6 @@
 import 'package:active_ecommerce_flutter/data_model/payment_type_response.dart';
 import 'package:active_ecommerce_flutter/dummy_data/payment_methods.dart';
+import 'package:active_ecommerce_flutter/screens/cbk_knet_screen.dart';
 import 'package:active_ecommerce_flutter/screens/my_fatoorah_knet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:active_ecommerce_flutter/my_theme.dart';
@@ -130,6 +131,16 @@ class _CheckoutState extends State<Checkout> {
       _selected_payment_method = _paymentTypeList[0].payment_type;
       _selected_payment_method_key = _paymentTypeList[0].payment_type_key;
     }
+    _paymentTypeList.add(
+        PaymentTypeResponse(
+          isOnline: false,
+          title: "Checkout with CBK KNET",
+          name: "CBK KNET",
+          payment_type: "cbk_knet",
+          payment_type_key: "cbk_knet",
+          image: "assets/knet.png",
+        ),
+    );
     _isInitial = false;
     setState(() {});
   }
@@ -158,7 +169,6 @@ class _CheckoutState extends State<Checkout> {
     _selected_payment_method = "";
     _selected_payment_method_key = "";
     setState(() {});
-
     reset_summary();
   }
 
@@ -259,8 +269,26 @@ class _CheckoutState extends State<Checkout> {
       })).then((value) {
         onPopped(value);
       });
+    }
+    else if (_selected_payment_method == "cbk_knet") {
+      if (_grandTotalValue == 0.00) {
+        ToastComponent.showDialog("Nothing to pay", context,
+            gravity: Toast.CENTER, duration: Toast.LENGTH_LONG);
+        return;
+      }
+
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return CBK_KNET_Screen(
+          amount: _grandTotalValue,
+          payment_type: "cart_payment",
+          payment_method_key: _selected_payment_method_key,
+        );
+      })).then((value) {
+        onPopped(value);
+      });
       ;
-    } else if (_selected_payment_method == "my_fatoorah") {
+    }
+    else if (_selected_payment_method == "my_fatoorah") {
       if (_grandTotalValue == 0.00) {
         ToastComponent.showDialog("Nothing to pay", context,
             gravity: Toast.CENTER, duration: Toast.LENGTH_LONG);

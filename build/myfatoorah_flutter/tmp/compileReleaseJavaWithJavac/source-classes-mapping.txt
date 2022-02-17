@@ -1,2 +1,0 @@
-com/example/myfatoorah_flutter/BuildConfig.java
- com.example.myfatoorah_flutter.BuildConfig

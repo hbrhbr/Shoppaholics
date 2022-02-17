@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.firebase:firebase-installations-interop:16.0.0@aar">
     <CLASSES>
-      <root url="jar://E:/Java/JDK/bin/caches/transforms-2/files-2.1/b6b0aaee826aa7a07e81d456c4cc8297/jetified-firebase-installations-interop-16.0.0/jars/classes.jar!/" />
-      <root url="file://E:/Java/JDK/bin/caches/transforms-2/files-2.1/b6b0aaee826aa7a07e81d456c4cc8297/jetified-firebase-installations-interop-16.0.0/res" />
-      <root url="file://E:/Java/JDK/bin/caches/transforms-2/files-2.1/b6b0aaee826aa7a07e81d456c4cc8297/jetified-firebase-installations-interop-16.0.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/faeea421f0d4bc7dde1e53159ef0cbb5/jetified-firebase-installations-interop-16.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/faeea421f0d4bc7dde1e53159ef0cbb5/jetified-firebase-installations-interop-16.0.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/faeea421f0d4bc7dde1e53159ef0cbb5/jetified-firebase-installations-interop-16.0.0/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://E:/Java/JDK/bin/caches/modules-2/files-2.1/com.google.firebase/firebase-installations-interop/16.0.0/1ae747557debcaf69a3a8082bf136399d29643de/firebase-installations-interop-16.0.0-javadoc.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.firebase/firebase-installations-interop/16.0.0/1ae747557debcaf69a3a8082bf136399d29643de/firebase-installations-interop-16.0.0-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES />
   </library>
